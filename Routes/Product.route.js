@@ -1,12 +1,21 @@
 const express = require('express')
 const router = express.Router()
 
+const Product = require('../Models/Product.model')
+
 router.get('/', (req,res,next)=>{
     res.send('getting a list of products');
 })
 
-router.post('/', (req,res,next)=>{
-    res.send('prod created');   
+router.post('/', async (req,res,next)=>{
+    try {
+        const product = new Product(req.body);
+        const result = await product.save();
+        res.send(result);
+    } catch(error) {
+        console.log(error.message);
+    }
+    
 })
 
 router.get('/:id', (req,res,next)=>{

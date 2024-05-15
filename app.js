@@ -6,7 +6,10 @@ const mongoose = require('mongoose')
 //jrZn6QGWhf9RwXg1
 const app = express()
 
-mongoose.connect('mongodb+srv://mycluster.gakhyll.mongodb.net/?retryWrites=true&w=majority&appName=MyCluster', {
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+
+mongoose.connect('mongodb+srv://mycluster.gakhyll.mongodb.net/', {
     dbName: 'PRODUCT_API',
     user: 'db_access',
     pass: 'jrZn6QGWhf9RwXg1',
