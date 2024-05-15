@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 
+const createError = require('http-errors');
 
 //db_access
 //jrZn6QGWhf9RwXg1
@@ -18,15 +19,15 @@ mongoose.connect('mongodb+srv://mycluster.gakhyll.mongodb.net/', {
 })
 
 
-const ProductRoute = require('./Routes/Product.route')
+const ProductRoute = require('./Routes/Product.route');
+const { create } = require('./Models/Product.model');
 app.use('/products', ProductRoute)
 
 app.use((req, res, next) =>{
-    const err = new Error('Not found');
-    err.status = 404;
-    next(err);
+    next(createError(404, "Not Found"));
 });
 
+//Error handler
 app.use((err, req, res, next) => {
     res.status(err.status || 500);
     res.send({
