@@ -12,9 +12,7 @@ app.use(express.urlencoded({extended:true}));
 mongoose.connect('mongodb+srv://mycluster.gakhyll.mongodb.net/', {
     dbName: 'PRODUCT_API',
     user: 'db_access',
-    pass: 'jrZn6QGWhf9RwXg1',
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+    pass: 'jrZn6QGWhf9RwXg1'
 }).then(() => {
     console.log('MongoDB HAS CONNECTED....');
 })
