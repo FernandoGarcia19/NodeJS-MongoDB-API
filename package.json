@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/FernandoGarcia19/NodeJS-MongoDB-API#readme",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "mongoose": "^8.3.4"
   }
 }

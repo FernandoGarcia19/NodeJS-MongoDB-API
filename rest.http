@@ -11,3 +11,6 @@ PATCH http://localhost:3000/products/id
 
 ###DELETE by id
 DELETE http://localhost:3000/products/id
+
+###ERROR 
+GET http://localhost:3000/Paciente
