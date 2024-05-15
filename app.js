@@ -1,15 +1,14 @@
+
+//dependencies
 const express = require('express')
 const mongoose = require('mongoose')
-
 const createError = require('http-errors');
-
-//db_access
-//jrZn6QGWhf9RwXg1
 const app = express()
-
+//parsing
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
+//mongodb connection
 mongoose.connect('mongodb+srv://mycluster.gakhyll.mongodb.net/', {
     dbName: 'PRODUCT_API',
     user: 'db_access',
@@ -18,11 +17,12 @@ mongoose.connect('mongodb+srv://mycluster.gakhyll.mongodb.net/', {
     console.log('MongoDB HAS CONNECTED....');
 })
 
-
+//route and product connection
 const ProductRoute = require('./Routes/Product.route');
 const { create } = require('./Models/Product.model');
 app.use('/products', ProductRoute)
 
+//eror handling: 404 not found
 app.use((req, res, next) =>{
     next(createError(404, "Not Found"));
 });
@@ -38,6 +38,7 @@ app.use((err, req, res, next) => {
     })
 })
 
+//listening to localhost on port 3000
 app.listen(3000, () =>
 {
     console.log('server started on port 3000')

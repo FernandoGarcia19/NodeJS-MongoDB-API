@@ -3,6 +3,8 @@ const createError = require('http-errors')
 
 const Product = require('../Models/Product.model')
 
+
+//definition of all the CRUD operations on Products with exception handling
 module.exports = {
     getAllProducts : async (req,res,next)=>{
         try {

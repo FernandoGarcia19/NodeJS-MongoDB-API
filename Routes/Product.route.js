@@ -4,6 +4,7 @@ const router = express.Router()
 
 const ProductController = require('../Controllers/Product.Controller')
 
+//CRUD operation handling through product controller
 router.get('/', ProductController.getAllProducts);
 
 router.post('/', ProductController.createNewProduct);
